@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <algorithm>
 
 template <class T> class NumberCounter {
 public:
@@ -31,9 +32,7 @@ int main()
     int arr[size]{ 4, 1, 3, 6, 25, 54 };
 
     NumberCounter<int> calc(3);
-    for (int i = 0; i < size; i++) {
-        calc(arr[i]);
-    }
+    calc = std::for_each(arr, arr + size, calc);
 
     std::cout << "[IN]: ";
     for (int i = 0; i < size; i++) {
